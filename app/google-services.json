@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "711773581975",
+    "firebase_url": "https://infoadder-10c22.firebaseio.com",
+    "project_id": "infoadder-10c22",
+    "storage_bucket": "infoadder-10c22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711773581975:android:fcc341fb59c74f93776fd2",
+        "android_client_info": {
+          "package_name": "com.info.infoadder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711773581975-qgbbp5jji43mmprjgddmthdgnelph1n0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.info.infoadder",
+            "certificate_hash": "3671957f713b9b4349e2e180216ae41796d16fe3"
+          }
+        },
+        {
+          "client_id": "711773581975-41r0o1ausn5r4c58bva0hougnq9emauo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwr8x2enGT38_72t8InZp8NQflZ8VRwyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711773581975-41r0o1ausn5r4c58bva0hougnq9emauo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
