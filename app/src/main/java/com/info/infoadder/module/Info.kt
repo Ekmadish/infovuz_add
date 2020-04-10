@@ -1,11 +1,13 @@
 package com.info.infoadder.module
 
 import android.os.Parcelable
+import com.google.firebase.database.IgnoreExtraProperties
 
 import kotlinx.android.parcel.Parcelize
 import java.security.Timestamp
 
 @Parcelize
+@IgnoreExtraProperties
 class Info(
     var id: String = "",
     var name: String="",
