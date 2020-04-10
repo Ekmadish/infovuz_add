@@ -15,9 +15,9 @@ class InfoViewHolder(override val containerView: View) : RecyclerView.ViewHolder
     fun bind(info: Info,editClickListener: View.OnClickListener,deleteClickListener: View.OnClickListener) {
         val id_n:String
 
-        containerView.tag = todo.id
-        titleTw.text = todo.title
-        id_text.setText(adapterPosition .plus(1).toString())
+//        containerView.tag = todo.id
+//        titleTw.text = todo.title
+//        id_text.setText(adapterPosition .plus(1).toString())
         // id_text.text = todo.timestamp
 
 //        editBtn.setOnClickListener(editClickListener)
