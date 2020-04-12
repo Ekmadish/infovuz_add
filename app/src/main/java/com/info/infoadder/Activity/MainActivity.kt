@@ -6,8 +6,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.info.infoadder.R
 import com.info.infoadder.module.Info
@@ -16,6 +16,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.row_info.view.*
 
 const val TITLE_PATH = "title"
 const val TITLE_CONTENT = "ed_text"
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val InfoRef: DatabaseReference = FirebaseDatabase.getInstance().getReference(PATH)
     companion object{
         val INFO_KEY="INFO_KEY"
+
     }
     private var activeInfo : Info?= null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,26 +38,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,Add::class.java))
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
-
-
-
-
-
-        }
+                }
 
         recyclerView_main.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        fethInfo()
+        fetchInfo()
     }
 
-    private fun fethInfo() {
+    private fun fetchInfo() {
         InfoRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-            override fun onDataChange(p0: DataSnapshot) {
-                val adapter = GroupAdapter<GroupieViewHolder>()
-
-
+            override fun onCancelled(p0: DatabaseError) {            }
+            override fun onDataChange(p0: DataSnapshot)
+            {   val adapter = GroupAdapter<GroupieViewHolder>()
                 p0.children.forEach{
                     Log.d("main",it.toString())
                     val info =it.getValue(Info::class.java)
@@ -64,11 +57,12 @@ class MainActivity : AppCompatActivity() {
                     }}
                 adapter.setOnItemClickListener{item, view ->
                     val _infoItem =item as InfoItem
+                    Toast.makeText(this@MainActivity,"Works",Toast.LENGTH_SHORT).show()
                 }
+                recyclerView_main.adapter=adapter
             }
         })
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -84,11 +78,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-class InfoItem(val user: Info): Item<GroupieViewHolder>() {
+class InfoItem(val info: Info): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+    viewHolder.itemView.textView_title_row.text=  info.name
+        viewHolder.itemView.textView_discrption_row.text=info.discriptin
         //viewHolder.itemView.username_textview_new_message.text = user.username
-
         //Picasso.get().load(user.profileImageUrl).into(viewHolder.itemView.imageview_new_message)
+
     }
 
     override fun getLayout(): Int {
