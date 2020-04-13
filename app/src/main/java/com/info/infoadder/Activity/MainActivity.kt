@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.firebase.database.*
 import com.info.infoadder.R
 import com.info.infoadder.module.Info
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_refresh -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -82,8 +83,7 @@ class InfoItem(val info: Info): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
     viewHolder.itemView.textView_title_row.text=  info.name
         viewHolder.itemView.textView_discrption_row.text=info.discriptin
-        //viewHolder.itemView.username_textview_new_message.text = user.username
-        //Picasso.get().load(user.profileImageUrl).into(viewHolder.itemView.imageview_new_message)
+        Picasso.get().load(info.image).into(viewHolder.itemView.imageView_row)
 
     }
 
