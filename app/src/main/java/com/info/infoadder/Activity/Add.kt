@@ -20,6 +20,7 @@ const val PATH="info"
 const val ID="id"
 const val NAME ="name"
 const val IMAGE="image "
+const val WEBSITE="website"
 const val TimeZone="timeZone"
 const val DISCRPTION="discriptin"
 const val PHONE ="phone"
@@ -73,13 +74,15 @@ class Add : AppCompatActivity() {
             id = Ref.push().key!!,
             name = univer_name.text.toString(),
             image = profileImageUrl!!.toString(),
+            website = univer_website.text.toString(),
             timestamp = getTimestamp(),
             discriptin = editText_discriptin.text.toString(),
             phone = editText_phone.text.toString(),
             email = editText_email.text.toString(),
             facebook = editText_facebook.text.toString(),
             instagram = editText_instagram.text.toString(),
-            address = editText_address.text.toString())
+            address = editText_address.text.toString()
+        )
         info.id=Ref.push().key!!
         Ref.child(info.name).setValue(info)
 //info.timestamp= getTimestamp()
@@ -106,6 +109,7 @@ class Add : AppCompatActivity() {
         Ref.child(info.id).child(NAME).setValue(info.name)
         Ref.child(info.id).child(DISCRPTION).setValue(info.discriptin)
         Ref.child(info.id).child(IMAGE).setValue(info.image)
+        Ref.child(info.id).child(WEBSITE).setValue(info.website)
         Ref.child(info.id).child(TimeZone).setValue(getTimestamp())
         Ref.child(info.id).child(PHONE).setValue(info.phone)
         Ref.child(info.id).child(EMAIL).setValue(info.email)

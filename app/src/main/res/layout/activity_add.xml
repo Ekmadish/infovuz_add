@@ -40,6 +40,16 @@
                 android:textAlignment="center" />
 
             <EditText
+                android:id="@+id/univer_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="univer_website"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <EditText
                 android:id="@+id/editText_instagram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
